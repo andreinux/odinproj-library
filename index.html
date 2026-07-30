@@ -21,16 +21,21 @@
                 <legend>New Book</legend>
 
                 <label for="title">Book Title</label>
-                <input type="text" id="title" placeholder="Enter book title">
+                <input type="text" id="title" placeholder="Enter book title" required>
 
                 <label for="author">Author</label>
-                <input type="text" id="author" placeholder="Enter book author">
+                <input type="text" id="author" placeholder="Enter book author" required>
 
                 <label for="release">Release</label>
-                <input type="text" id="release" placeholder="Book release year">
+                <input type="text" id="release" placeholder="Book release year" required>
 
-                <label for="haveRead">Have Read</label>
-                <input type="text" id="haveRead" placeholde="Have read this book yet? (yes or no)">
+                <label for="haveRead">Read Status</label>
+
+<select id="haveRead">
+    <option value="false">Not Read</option>
+    <option value="true">Read</option>
+</select>
+
                 
                 
                 </label>

@@ -19,8 +19,8 @@ function addBookToLibrary (title, author, release, haveRead){
     myLibrary.push(newbook);
 }
 
-addBookToLibrary("Harry Potter" , "J.K Rowling" , 1990, "Not Read");
-addBookToLibrary("Romeo & Juliet" , "Sheakspeare", 1980, "Not Read");
+addBookToLibrary("Harry Potter" , "J.K Rowling" , 1990, false);
+addBookToLibrary("Romeo & Juliet" , "Sheakspeare", 1980, false);
 console.log(myLibrary);
 
 
@@ -46,7 +46,7 @@ function displayBooks (){
           title.textContent = book.title;
           author.textContent = book.author;
           release.textContent = book.release;
-          haveRead.textContent = book.haveRead ? "Not Read" : "Read";
+         haveRead.textContent = book.haveRead ? "Read" : "Not Read";
 
           container.append(card);
 
@@ -67,7 +67,7 @@ function displayBooks (){
 
           let readStatusBtn = document.createElement("button");
           readStatusBtn.classList.add("readStatusBtn");
-          readStatusBtn.textContent = book.haveRead? "Finished Reading": "Not Finished yet";
+          readStatusBtn.textContent = book.haveRead? "Mark as unread": "Mark as read";
 
           readStatusBtn.addEventListener("click" , ()=> {
             book.readStatus();
@@ -104,7 +104,8 @@ submitBtn.addEventListener("click" , (e)=> {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let release = document.querySelector("#release").value;
-    let haveRead = document.querySelector("#haveRead").value;
+
+    const haveRead = document.querySelector("#haveRead").value === "true";
 
     addBookToLibrary(title, author, release, haveRead);
     displayBooks();
