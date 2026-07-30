@@ -19,8 +19,8 @@ function addBookToLibrary (title, author, release, haveRead){
     myLibrary.push(newbook);
 }
 
-addBookToLibrary("Harry Potter" , "J.K Rowling" , 1990, "haveRead");
-addBookToLibrary("Romeo & Juliet" , "Sheakspeare", 1980, "havRead");
+addBookToLibrary("Harry Potter" , "J.K Rowling" , 1990, "Not Read");
+addBookToLibrary("Romeo & Juliet" , "Sheakspeare", 1980, "Not Read");
 console.log(myLibrary);
 
 
@@ -46,7 +46,7 @@ function displayBooks (){
           title.textContent = book.title;
           author.textContent = book.author;
           release.textContent = book.release;
-          haveRead.textContent = book.haveRead ? "Read" : "Not Read";
+          haveRead.textContent = book.haveRead ? "Not Read" : "Read";
 
           container.append(card);
 
@@ -67,11 +67,10 @@ function displayBooks (){
 
           let readStatusBtn = document.createElement("button");
           readStatusBtn.classList.add("readStatusBtn");
-          readStatusBtn.textContent = "Have Read?";
+          readStatusBtn.textContent = book.haveRead? "Finished Reading": "Not Finished yet";
 
           readStatusBtn.addEventListener("click" , ()=> {
             book.readStatus();
-            readStatusBtn.textContent = book.haveRead? "Read": "Not Read";
             displayBooks();
           })
 
