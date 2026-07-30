@@ -1,0 +1,17 @@
+.card {
+    border: 1px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+    height: auto;
+    outline: 1px solid black;
+    margin-top: 5px;
+}
+
+.hidden {
+    display: none;
+}
