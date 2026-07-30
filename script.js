@@ -19,8 +19,8 @@ function addBookToLibrary (title, author, release, haveRead){
     myLibrary.push(newbook);
 }
 
-addBookToLibrary("Harry Potter" , "J.K Rowling" , 1990, false);
-addBookToLibrary("Romeo & Juliet" , "Sheakspeare", 1980, false);
+addBookToLibrary("Harry Potter" , "J.K Rowling" , 1997, false);
+addBookToLibrary("Romeo & Juliet" , "William Sheakspeare", 1597, false);
 console.log(myLibrary);
 
 
