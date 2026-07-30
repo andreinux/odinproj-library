@@ -26,8 +26,12 @@ function displayBooks (){
         container.innerHTML = "";
 
     myLibrary.forEach((book)=> {
+        
         let card = document.createElement("div");
         card.classList.add("card");
+
+        card.dataset.id = book.id;
+
 
         let title = document.createElement("p");
         let author = document.createElement("p");
@@ -41,6 +45,22 @@ function displayBooks (){
 
           card.append(title, author ,release,haveRead);
           container.append(card);
+
+          let removeBtn = document.createElement("button");
+          removeBtn.classList.add("removeBtn");
+          removeBtn.textContent = "Remove Book"
+
+          removeBtn.addEventListener("click" , ()=> {
+            const id = card.dataset.id;
+
+           const index = myLibrary.findIndex(book=> book.id === id);
+           myLibrary.splice(index, 1);
+
+           displayBooks();
+})
+
+          card.append(removeBtn);
+         
     })
 }
 
@@ -79,3 +99,5 @@ submitBtn.addEventListener("click" , (e)=> {
     form.reset();
 
 })
+
+//remove book function
