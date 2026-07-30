@@ -1,16 +1,21 @@
 const myLibrary = [];
 
 
-function book (title, author, release, haveRead){
+function Book (title, author, release, haveRead){
     this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
     this.release = release;
     this.haveRead = haveRead;
 }
+//yohooooooo
+Book.prototype.readStatus = function (){
+    this.haveRead = !this.haveRead;
+}
+
 
 function addBookToLibrary (title, author, release, haveRead){
-    const newbook = new book (title, author, release, haveRead);
+    const newbook = new Book (title, author, release, haveRead);
     myLibrary.push(newbook);
 }
 
@@ -41,14 +46,14 @@ function displayBooks (){
           title.textContent = book.title;
           author.textContent = book.author;
           release.textContent = book.release;
-          haveRead.textContent = book.haveRead;
+          haveRead.textContent = book.haveRead ? "Read" : "Not Read";
 
-          card.append(title, author ,release,haveRead);
           container.append(card);
 
           let removeBtn = document.createElement("button");
           removeBtn.classList.add("removeBtn");
-          removeBtn.textContent = "Remove Book"
+          removeBtn.textContent = "Remove Book";
+
 
           removeBtn.addEventListener("click" , ()=> {
             const id = card.dataset.id;
@@ -57,9 +62,21 @@ function displayBooks (){
            myLibrary.splice(index, 1);
 
            displayBooks();
-})
+        })
 
-          card.append(removeBtn);
+
+          let readStatusBtn = document.createElement("button");
+          readStatusBtn.classList.add("readStatusBtn");
+          readStatusBtn.textContent = "Have Read?";
+
+          readStatusBtn.addEventListener("click" , ()=> {
+            book.readStatus();
+            readStatusBtn.textContent = book.haveRead? "Read": "Not Read";
+            displayBooks();
+          })
+
+
+        card.append(title, author ,release,haveRead,removeBtn, readStatusBtn);
          
     })
 }
