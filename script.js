@@ -63,6 +63,7 @@ let submitBtn = document.querySelector("#submit-btn");
 
 submitBtn.addEventListener("click" , (e)=> {
     e.preventDefault();
+    
 
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
@@ -75,6 +76,6 @@ submitBtn.addEventListener("click" , (e)=> {
     //hide form again
 
     form.classList.add("hidden");
-
+    form.reset();
 
 })
